@@ -62,11 +62,6 @@
       box-shadow: var(--shadow-ref);
       padding: 16px;
     }
-    .hero-kicker{
-      margin: 0 0 6px;
-      font-size: 13px;
-      opacity: .9;
-    }
     .hero-title{
       margin: 0;
       color: var(--contrast);
@@ -167,13 +162,9 @@
       opacity: .95;
     }
 
-    /* --- Команда экспертов: gallery + dots --- */
+    /* --- Команда экспертов: gallery --- */
     .gallery-shell{
-      background: var(--card);
-      border: 1px solid var(--stroke);
-      border-radius: var(--r-xxl);
-      padding: 12px;
-      box-shadow: var(--shadow-ref);
+      padding: 12px 0 0;
     }
 
     .gallery{
@@ -268,44 +259,7 @@
     }
     .chip b{ font-weight: 950; letter-spacing:.1px; }
 
-    /* Dots: CSS only, with :target (no script) */
-    .dots{
-      display:flex;
-      justify-content:center;
-      gap: 8px;
-      padding: 10px 0 2px;
-    }
-    .dot{
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(28,51,79,.20);
-      border: 1px solid rgba(28,51,79,.14);
-      display:inline-block;
-      transition: transform .12s ease;
-    }
-    .dot:focus-visible{ outline: 3px solid rgba(28,51,79,.25); outline-offset: 3px; }
 
-    /* Default active = first dot */
-    .dots .dot--1{ background: rgba(28,51,79,.45); border-color: rgba(28,51,79,.22); transform: scale(1.12); }
-
-    /* If some slide is targeted, override */
-    #e1:target ~ .gallery-shell .dots .dot{ background: rgba(28,51,79,.20); transform: scale(1); }
-    #e2:target ~ .gallery-shell .dots .dot{ background: rgba(28,51,79,.20); transform: scale(1); }
-    #e3:target ~ .gallery-shell .dots .dot{ background: rgba(28,51,79,.20); transform: scale(1); }
-
-    #e1:target ~ .gallery-shell .dots .dot--1{ background: rgba(28,51,79,.45); border-color: rgba(28,51,79,.22); transform: scale(1.12); }
-    #e2:target ~ .gallery-shell .dots .dot--2{ background: rgba(28,51,79,.45); border-color: rgba(28,51,79,.22); transform: scale(1.12); }
-    #e3:target ~ .gallery-shell .dots .dot--3{ background: rgba(28,51,79,.45); border-color: rgba(28,51,79,.22); transform: scale(1.12); }
-
-    /* Target anchors should not take space */
-    .target{
-      position: relative;
-      top: -6px;
-      display:block;
-      height: 0;
-      overflow: hidden;
-    }
   </style>
 </head>
 
@@ -315,7 +269,6 @@
     <!-- 1) Главный блок -->
     <section class="section" aria-label="Главный блок">
       <div class="hero">
-        <p class="hero-kicker">Главное:</p>
         <h1 class="hero-title">Забота и экспертность для развития вашего ребёнка</h1>
 
         <div class="hero-actions">
@@ -398,11 +351,6 @@
     <section class="section" aria-label="Команда экспертов">
       <h2 class="section-title">Команда экспертов</h2>
 
-      <!-- targets for dots (no JS) -->
-      <span id="e1" class="target" aria-hidden="true"></span>
-      <span id="e2" class="target" aria-hidden="true"></span>
-      <span id="e3" class="target" aria-hidden="true"></span>
-
       <div class="gallery-shell">
         <div class="gallery" aria-label="Галерея экспертов">
           <article class="expert expert--rose" aria-label="Вероника Иоффе">
@@ -462,13 +410,6 @@
               </div>
             </div>
           </article>
-        </div>
-
-        <!-- dots navigation (no JS). It won't auto-track scroll; user taps dots to "switch". -->
-        <div class="dots" aria-label="Перелистывание экспертов">
-          <a class="dot dot--1" href="#e1" aria-label="Эксперт 1"></a>
-          <a class="dot dot--2" href="#e2" aria-label="Эксперт 2"></a>
-          <a class="dot dot--3" href="#e3" aria-label="Эксперт 3"></a>
         </div>
       </div>
     </section>
