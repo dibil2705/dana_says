@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Позиционинг • Наш подход • Команда экспертов</title>
+
+  <style>
+    :root{
+      /* app colors */
+      --bg:#fffdfa;
+      --text:#565656ff;
+      --contrast:#1c334f;
+
+      --mint:#aae3d4;
+      --salmon:#ff967d;
+      --rose:#ffa6ad;
+
+      /* ui */
+      --card:#ffffff;
+      --stroke:rgba(28,51,79,.10);
+
+      --r-xxl:30px;
+      --r-xl:26px;
+
+      --h2:20px;
+
+      /* shadow from reference */
+      --shadow-ref: 0px 4px 16px 0px rgba(0,0,0,0.22);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      background: var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color: var(--text);
+    }
+
+    .page{
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 18px 16px 26px;
+    }
+
+    .section{ margin-top: 18px; }
+    .section-title{
+      margin: 14px 2px 12px;
+      font-size: var(--h2);
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: .2px;
+      text-align: left;
+    }
+
+    /* --- Позиционинг: белый фон + тень снизу по рефу --- */
+    .hero{
+      background: var(--card);
+      border-radius: var(--r-xxl);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow-ref);
+      padding: 16px;
+    }
+    .hero-kicker{
+      margin: 0 0 6px;
+      font-size: 13px;
+      opacity: .9;
+    }
+    .hero-title{
+      margin: 0;
+      color: var(--contrast);
+      font-weight: 950;
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: .1px;
+    }
+    .hero-actions{
+      margin-top: 14px;
+      display:grid;
+      gap: 10px;
+    }
+    .btn{
+      appearance:none;
+      border:0;
+      border-radius: 999px;
+      padding: 14px 16px;
+      font-weight: 850;
+      font-size: 14px;
+      line-height: 1;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      text-decoration:none;
+      color: var(--contrast);
+      background: var(--mint);
+      box-shadow: 0 12px 22px rgba(28,51,79,.10);
+      width: 100%;
+    }
+    .btn:focus-visible{ outline: 3px solid rgba(28,51,79,.25); outline-offset: 3px; }
+    .btn-ghost{
+      background: rgba(28,51,79,.06);
+      box-shadow: none;
+      color: var(--contrast);
+    }
+
+    /* --- Наш подход --- */
+    .panel-mint{
+      background: rgba(170,227,212,.42);
+      border: 1px solid rgba(28,51,79,.08);
+      border-radius: var(--r-xxl);
+      padding: 14px;
+      box-shadow: 0 12px 24px rgba(28,51,79,.08);
+    }
+    .lead{
+      margin: 0 0 12px;
+      color: var(--contrast);
+      font-weight: 900;
+      font-size: 14.5px;
+      line-height: 1.35;
+    }
+    .rows{ display:grid; gap: 12px; }
+    .row{
+      background: rgba(255,253,250,.92);
+      border: 1px solid rgba(28,51,79,.08);
+      border-radius: var(--r-xxl);
+      padding: 14px;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+
+    /* icons: NO gradients */
+    .row-ic{
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display:grid;
+      place-items:center;
+      background: rgba(28,51,79,.04);
+      border: 1px solid rgba(28,51,79,.10);
+    }
+    .row-ic svg{
+      width: 22px;
+      height: 22px;
+      stroke: var(--contrast);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: .95;
+    }
+
+    .row h3{
+      margin:0 0 6px;
+      font-size: 15px;
+      line-height: 1.15;
+      color: var(--contrast);
+      font-weight: 950;
+    }
+    .row p{
+      margin:0;
+      font-size: 14px;
+      line-height: 1.45;
+      opacity: .95;
+    }
+
+    /* --- Команда экспертов: gallery + dots --- */
+    .gallery-shell{
+      background: rgba(28,51,79,.03);
+      border: 1px solid rgba(28,51,79,.08);
+      border-radius: var(--r-xxl);
+      padding: 12px;
+      box-shadow: 0 12px 24px rgba(28,51,79,.08);
+    }
+
+    .gallery{
+      display:flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 6px 4px 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .gallery::-webkit-scrollbar{ display:none; }
+
+    .expert{
+      scroll-snap-align: start;
+      min-width: 300px;
+      max-width: 320px;
+      background: rgba(255,253,250,.92);
+      border: 1px solid rgba(28,51,79,.10);
+      border-radius: var(--r-xxl);
+      box-shadow: 0 12px 24px rgba(28,51,79,.10);
+      overflow:hidden;
+      position: relative;
+    }
+    .expert::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height: 8px;
+      background: var(--mint);
+      opacity: .95;
+    }
+    .expert--salmon::before{ background: var(--salmon); }
+    .expert--rose::before{ background: var(--rose); }
+
+    .expert-top{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      padding: 14px 14px 10px;
+    }
+    .avatar{
+      width: 68px;
+      height: 68px;
+      border-radius: 999px;
+      overflow:hidden;
+      border: 1px solid rgba(28,51,79,.10);
+      background: rgba(28,51,79,.04);
+      display:grid;
+      place-items:end center;
+      flex: 0 0 auto;
+    }
+    .avatar img{
+      width: 84%;
+      height: 84%;
+      object-fit: contain;
+      display:block;
+      transform: translateY(6px);
+      filter: drop-shadow(0 12px 14px rgba(28,51,79,.14));
+    }
+    .expert-name{
+      margin:0;
+      color: var(--contrast);
+      font-weight: 950;
+      font-size: 16px;
+      line-height: 1.1;
+    }
+    .expert-role{
+      margin: 6px 0 0;
+      font-size: 13px;
+      line-height: 1.35;
+      opacity: .9;
+    }
+    .expert-body{ padding: 0 14px 14px; }
+    .expert-desc{
+      margin: 8px 0 12px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .chips{ display:flex; gap: 8px; flex-wrap:wrap; }
+    .chip{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(28,51,79,.05);
+      border: 1px solid rgba(28,51,79,.10);
+      font-size: 12.5px;
+      color: var(--contrast);
+      white-space: nowrap;
+    }
+    .chip b{ font-weight: 950; letter-spacing:.1px; }
+
+    /* Dots: CSS only, with :target (no script) */
+    .dots{
+      display:flex;
+      justify-content:center;
+      gap: 8px;
+      padding: 10px 0 2px;
+    }
+    .dot{
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(28,51,79,.20);
+      border: 1px solid rgba(28,51,79,.14);
+      display:inline-block;
+      transition: transform .12s ease;
+    }
+    .dot:focus-visible{ outline: 3px solid rgba(28,51,79,.25); outline-offset: 3px; }
+
+    /* Default active = first dot */
+    .dots .dot--1{ background: rgba(28,51,79,.45); border-color: rgba(28,51,79,.22); transform: scale(1.12); }
+
+    /* If some slide is targeted, override */
+    #e1:target ~ .gallery-shell .dots .dot{ background: rgba(28,51,79,.20); transform: scale(1); }
+    #e2:target ~ .gallery-shell .dots .dot{ background: rgba(28,51,79,.20); transform: scale(1); }
+    #e3:target ~ .gallery-shell .dots .dot{ background: rgba(28,51,79,.20); transform: scale(1); }
+
+    #e1:target ~ .gallery-shell .dots .dot--1{ background: rgba(28,51,79,.45); border-color: rgba(28,51,79,.22); transform: scale(1.12); }
+    #e2:target ~ .gallery-shell .dots .dot--2{ background: rgba(28,51,79,.45); border-color: rgba(28,51,79,.22); transform: scale(1.12); }
+    #e3:target ~ .gallery-shell .dots .dot--3{ background: rgba(28,51,79,.45); border-color: rgba(28,51,79,.22); transform: scale(1.12); }
+
+    /* Target anchors should not take space */
+    .target{
+      position: relative;
+      top: -6px;
+      display:block;
+      height: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- 1) Позиционинг -->
+    <section class="section" aria-label="Позиционинг">
+      <div class="hero">
+        <p class="hero-kicker">Позиционинг:</p>
+        <h1 class="hero-title">Забота и экспертность для развития вашего ребёнка</h1>
+
+        <div class="hero-actions">
+          <a class="btn" href="/" aria-label="Перейти на главную и связаться">Связаться с нами →</a>
+          <a class="btn btn-ghost" href="/" aria-label="Перейти на главную и узнать больше">Подробнее</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) Наш подход -->
+    <section class="section" aria-label="Наш подход">
+      <h2 class="section-title">Наш подход</h2>
+
+      <div class="panel-mint">
+        <p class="lead">Почему мы успешно помогли с развивающими занятиями уже 30+ семьям?</p>
+
+        <div class="rows">
+          <article class="row">
+            <div class="row-ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="3"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a3 3 0 0 1 0 5.74"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Командная работа</h3>
+              <p>В нашей команде собраны самые важные специалисты по развитию — дефектолог, логопед, психолог, сенсорный терапевт и музыкальный терапевт.</p>
+            </div>
+          </article>
+
+          <article class="row">
+            <div class="row-ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"></path>
+                <path d="M20 2H6.5A2.5 2.5 0 0 0 4 4.5v15"></path>
+                <path d="M8 6h8"></path>
+                <path d="M8 10h8"></path>
+                <path d="M8 14h6"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Современные методы</h3>
+              <p>Интенсивный курс базируется на методиках сенсорной интеграции, FloorTime. Мы используем метод фонетической ритмики, метод Новиковой-Иванцовой и Грузиновой.</p>
+            </div>
+          </article>
+
+          <article class="row">
+            <div class="row-ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z"></path>
+                <path d="M9.5 10.5 11 12l3.5-3.5"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Онтогенетический подход</h3>
+              <p>Мы опираемся на поэтапное естественное развитие ребёнка, мягко подводим его к речи.</p>
+            </div>
+          </article>
+
+          <article class="row">
+            <div class="row-ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M20 12c0 6-8 10-8 10S4 18 4 12a8 8 0 0 1 16 0z"></path>
+                <path d="M9 12h6"></path>
+                <path d="M12 9v6"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Игра — в основе взаимодействия</h3>
+              <p>Вам не придётся заставлять ребёнка: он сам захочет играть с вами и включаться в занятия.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Команда экспертов -->
+    <section class="section" aria-label="Команда экспертов">
+      <h2 class="section-title">Команда экспертов</h2>
+
+      <!-- targets for dots (no JS) -->
+      <span id="e1" class="target" aria-hidden="true"></span>
+      <span id="e2" class="target" aria-hidden="true"></span>
+      <span id="e3" class="target" aria-hidden="true"></span>
+
+      <div class="gallery-shell">
+        <div class="gallery" aria-label="Галерея экспертов">
+          <article class="expert" aria-label="Сергей Изотов">
+            <div class="expert-top">
+              <div class="avatar">
+                <img src="https://static.tildacdn.com/tild3230-3234-4566-a565-666637326237/Group_115_1.png" alt="Сергей Изотов" />
+              </div>
+              <div>
+                <h3 class="expert-name">Сергей Изотов</h3>
+                <p class="expert-role">Запуск речи • музыкальная терапия • нейродинамическая гимнастика</p>
+              </div>
+            </div>
+            <div class="expert-body">
+              <p class="expert-desc">Специалист по запуску речи, музыкальной терапии и нейродинамической гимнастике для детей от 1,5 до 3 лет.</p>
+              <div class="chips" aria-label="Факты">
+                <span class="chip"><b>10 лет</b> опыт</span>
+                <span class="chip"><b>11 детей</b> заговорили в 2024</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="expert expert--salmon" aria-label="Арина Смирнова">
+            <div class="expert-top">
+              <div class="avatar">
+                <img src="https://static.tildacdn.com/tild3439-3965-4364-b531-633866366433/Group_116_1.png" alt="Арина Смирнова" />
+              </div>
+              <div>
+                <h3 class="expert-name">Арина Смирнова</h3>
+                <p class="expert-role">Речь • поведение • пищевая избирательность • навыки гигиены</p>
+              </div>
+            </div>
+            <div class="expert-body">
+              <p class="expert-desc">Помогает родителям развить речь у ребёнка, скорректировать поведение, справиться с пищевой избирательностью и наладить гигиенические навыки.</p>
+              <div class="chips" aria-label="Факты">
+                <span class="chip"><b>7 лет</b> опыт</span>
+                <span class="chip"><b>10+ курсов</b> повышение квалификации</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="expert expert--rose" aria-label="Вероника Иоффе">
+            <div class="expert-top">
+              <div class="avatar">
+                <img src="https://static.tildacdn.com/tild3233-3834-4638-b238-626332326362/Frame_744_1.png" alt="Вероника Иоффе" />
+              </div>
+              <div>
+                <h3 class="expert-name">Вероника Иоффе</h3>
+                <p class="expert-role">Неговорящие дети • алалия • ЗРР • РАС</p>
+              </div>
+            </div>
+            <div class="expert-body">
+              <p class="expert-desc">Специализируется на неговорящих детях, запускает речь у детей с алалией, задержкой речевого развития и РАС.</p>
+              <div class="chips" aria-label="Факты">
+                <span class="chip"><b>11 лет</b> опыт</span>
+                <span class="chip"><b>4 года</b> школа</span>
+                <span class="chip"><b>7 лет</b> центр речи</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- dots navigation (no JS). It won't auto-track scroll; user taps dots to "switch". -->
+        <div class="dots" aria-label="Перелистывание экспертов">
+          <a class="dot dot--1" href="#e1" aria-label="Эксперт 1"></a>
+          <a class="dot dot--2" href="#e2" aria-label="Эксперт 2"></a>
+          <a class="dot dot--3" href="#e3" aria-label="Эксперт 3"></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
