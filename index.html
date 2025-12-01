@@ -186,7 +186,7 @@
       background: #ffffff;
       border: 1px solid rgba(28,51,79,.08);
       border-radius: 28px;
-      box-shadow: var(--shadow-ref);
+      box-shadow: 0 6px 14px rgba(28,51,79,.12);
       overflow:hidden;
       position: relative;
       padding: 12px 12px 14px;
@@ -195,8 +195,8 @@
       gap: 6px;
     }
     .expert::before{ display:none; }
-    .expert--salmon{ box-shadow: var(--shadow-ref); }
-    .expert--rose{ box-shadow: var(--shadow-ref); }
+    .expert--salmon{ box-shadow: 0 6px 14px rgba(28,51,79,.12); }
+    .expert--rose{ box-shadow: 0 6px 14px rgba(28,51,79,.12); }
 
     .expert-top{
       display:flex;
@@ -253,7 +253,7 @@
       padding: 16px 12px 14px;
       background: #ffffff;
       border-radius: 22px;
-      box-shadow: inset 0 0 0 1px rgba(28,51,79,.05);
+      box-shadow: none;
       width: 100%;
       min-height: 188px;
       flex: 1;
@@ -284,11 +284,6 @@
       color: #2f3e57;
       white-space: nowrap;
       box-shadow: 0 10px 18px rgba(28,51,79,.08);
-    }
-    .expert--salmon .chip:nth-child(2){
-      background: #fff3e2;
-      color: #4f3820;
-      box-shadow: 0 12px 18px rgba(255,150,125,.18);
     }
     .chip b{ font-weight: 950; letter-spacing:.1px; line-height:1; font-size: 14.5px; }
 
