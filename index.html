@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Позиционинг • Наш подход • Команда экспертов</title>
+  <title>Наш подход • Команда экспертов</title>
 
   <style>
     :root{
@@ -54,7 +54,7 @@
       text-align: left;
     }
 
-    /* --- Позиционинг: белый фон + тень снизу по рефу --- */
+    /* --- Главный блок: белый фон + тень снизу по рефу --- */
     .hero{
       background: var(--card);
       border-radius: var(--r-xxl);
@@ -169,11 +169,11 @@
 
     /* --- Команда экспертов: gallery + dots --- */
     .gallery-shell{
-      background: rgba(28,51,79,.03);
-      border: 1px solid rgba(28,51,79,.08);
+      background: var(--card);
+      border: 1px solid var(--stroke);
       border-radius: var(--r-xxl);
       padding: 12px;
-      box-shadow: 0 12px 24px rgba(28,51,79,.08);
+      box-shadow: var(--shadow-ref);
     }
 
     .gallery{
@@ -312,10 +312,10 @@
 <body>
   <main class="page">
 
-    <!-- 1) Позиционинг -->
-    <section class="section" aria-label="Позиционинг">
+    <!-- 1) Главный блок -->
+    <section class="section" aria-label="Главный блок">
       <div class="hero">
-        <p class="hero-kicker">Позиционинг:</p>
+        <p class="hero-kicker">Главное:</p>
         <h1 class="hero-title">Забота и экспертность для развития вашего ребёнка</h1>
 
         <div class="hero-actions">
@@ -405,6 +405,26 @@
 
       <div class="gallery-shell">
         <div class="gallery" aria-label="Галерея экспертов">
+          <article class="expert expert--rose" aria-label="Вероника Иоффе">
+            <div class="expert-top">
+              <div class="avatar">
+                <img src="https://static.tildacdn.com/tild3233-3834-4638-b238-626332326362/Frame_744_1.png" alt="Вероника Иоффе" />
+              </div>
+              <div>
+                <h3 class="expert-name">Вероника Иоффе</h3>
+                <p class="expert-role">Неговорящие дети • алалия • ЗРР • РАС</p>
+              </div>
+            </div>
+            <div class="expert-body">
+              <p class="expert-desc">Специализируется на неговорящих детях, запускает речь у детей с алалией, задержкой речевого развития и РАС.</p>
+              <div class="chips" aria-label="Факты">
+                <span class="chip"><b>11 лет</b> опыт</span>
+                <span class="chip"><b>4 года</b> школа</span>
+                <span class="chip"><b>7 лет</b> центр речи</span>
+              </div>
+            </div>
+          </article>
+
           <article class="expert" aria-label="Сергей Изотов">
             <div class="expert-top">
               <div class="avatar">
@@ -439,26 +459,6 @@
               <div class="chips" aria-label="Факты">
                 <span class="chip"><b>7 лет</b> опыт</span>
                 <span class="chip"><b>10+ курсов</b> повышение квалификации</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="expert expert--rose" aria-label="Вероника Иоффе">
-            <div class="expert-top">
-              <div class="avatar">
-                <img src="https://static.tildacdn.com/tild3233-3834-4638-b238-626332326362/Frame_744_1.png" alt="Вероника Иоффе" />
-              </div>
-              <div>
-                <h3 class="expert-name">Вероника Иоффе</h3>
-                <p class="expert-role">Неговорящие дети • алалия • ЗРР • РАС</p>
-              </div>
-            </div>
-            <div class="expert-body">
-              <p class="expert-desc">Специализируется на неговорящих детях, запускает речь у детей с алалией, задержкой речевого развития и РАС.</p>
-              <div class="chips" aria-label="Факты">
-                <span class="chip"><b>11 лет</b> опыт</span>
-                <span class="chip"><b>4 года</b> школа</span>
-                <span class="chip"><b>7 лет</b> центр речи</span>
               </div>
             </div>
           </article>
