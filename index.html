@@ -206,26 +206,43 @@
       align-items:center;
       padding: 14px 14px 10px;
     }
-    .avatar{
-      width: 76px; /* увеличили размер аватарки для акцента */
+    .avatar {
+      width: 76px;
       height: 76px;
       border-radius: 16px;
-      overflow:hidden;
+      overflow: hidden;
       border: 1px solid rgba(28,51,79,.10);
       background: rgba(28,51,79,.04);
-      display:grid;
-      place-items:end center;
       flex: 0 0 auto;
+      position: relative;
+      /* display: grid; place-items: end center;  <- это убери, оно бессмысленно с absolute */
     }
-    .avatar img{
-      /* Фото увеличено на 50% относительно исходного размера */
-      width: 126%;
-      height: 126%;
+
+    .avatar img {
+      width: 116%;
+      height: auto; /* не надо насильно 116% по высоте, пусть держит пропорции */
       object-fit: contain;
-      display:block;
-      transform: translateY(6px);
+      display: block;
       filter: drop-shadow(0 12px 14px rgba(28,51,79,.14));
+
+      position: absolute;
+      bottom: 0;             /* прижали к низу */
+      left: 50%;             /* ставим в центр по X */
+      transform: translateX(-50%); /* центрируем, БЕЗ translateY */
     }
+
+
+    .avatar--arina img {
+      margin-left: 7px;
+      width: 148%;   /* или 80%, или 72px — решай ты, а не браузер */
+      height: auto;
+    }
+
+    .avatar--sergey img {
+      width: 97%;   /* или 80%, или 72px — решай ты, а не браузер */
+      height: auto;
+    }    
+
     .avatar--veronika{ background: #ffedf0; }
     .avatar--sergey{ background: #ebf7ff; }
     .avatar--arina{ background: #ffe455; }
