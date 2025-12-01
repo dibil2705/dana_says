@@ -183,17 +183,20 @@
       scroll-snap-align: start;
       min-width: 300px;
       max-width: 320px;
-      background: #fff5f3;
+      background: #ffffff;
       border: 1px solid rgba(28,51,79,.08);
       border-radius: 28px;
-      box-shadow: 0 16px 32px rgba(255,150,125,.18);
+      box-shadow: var(--shadow-ref);
       overflow:hidden;
       position: relative;
       padding: 12px 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
     .expert::before{ display:none; }
-    .expert--salmon{ box-shadow: 0 16px 32px rgba(255,150,125,.22); }
-    .expert--rose{ box-shadow: 0 16px 32px rgba(255,166,173,.22); }
+    .expert--salmon{ box-shadow: var(--shadow-ref); }
+    .expert--rose{ box-shadow: var(--shadow-ref); }
 
     .expert-top{
       display:flex;
@@ -213,20 +216,19 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      padding-bottom: 4px;
     }
 
     .avatar img {
-      width: 118%;
-      height: auto;
+      width: auto;
+      height: 100%;
       object-fit: contain;
       display: block;
       filter: drop-shadow(0 10px 12px rgba(28,51,79,.14));
       position: relative;
     }
 
-    .avatar--arina img { width: 136%; }
-    .avatar--sergey img { width: 104%; }
+    .avatar--arina img { max-width: 136%; }
+    .avatar--sergey img { max-width: 104%; }
 
     .avatar--veronika{ background: #ffedf0; }
     .avatar--sergey{ background: #ebf7ff; }
@@ -248,10 +250,13 @@
     }
     .expert-body{
       margin-top: 10px;
-      padding: 14px 10px 10px;
+      padding: 16px 12px 14px;
       background: #ffffff;
       border-radius: 22px;
       box-shadow: inset 0 0 0 1px rgba(28,51,79,.05);
+      width: 100%;
+      min-height: 188px;
+      flex: 1;
     }
     .expert-desc{
       margin: 12px 0 16px;
