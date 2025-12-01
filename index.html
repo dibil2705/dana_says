@@ -8,7 +8,7 @@
   <style>
     :root{
       /* app colors */
-      --bg:#fffdfa;
+      --bg:#ffffff;
       --text:#565656ff;
       --contrast:#1c334f;
 
@@ -164,14 +164,15 @@
 
     /* --- Команда экспертов: gallery --- */
     .gallery-shell{
-      padding: 12px 0 0;
+      padding: 18px 0 0;
+      background: #ffffff;
     }
 
     .gallery{
       display:flex;
-      gap: 12px;
+      gap: 14px;
       overflow-x: auto;
-      padding: 6px 4px 10px;
+      padding: 8px 2px 12px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -182,92 +183,85 @@
       scroll-snap-align: start;
       min-width: 300px;
       max-width: 320px;
-      background: rgba(255,253,250,.92);
-      border: 1px solid rgba(28,51,79,.10);
-      border-radius: var(--r-xxl);
-      box-shadow: 0 12px 24px rgba(28,51,79,.10);
+      background: #fff5f3;
+      border: 1px solid rgba(28,51,79,.08);
+      border-radius: 28px;
+      box-shadow: 0 16px 32px rgba(255,150,125,.18);
       overflow:hidden;
       position: relative;
+      padding: 12px 12px 14px;
     }
-    .expert::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto 0;
-      height: 8px;
-      background: var(--mint);
-      opacity: .95;
-    }
-    .expert--salmon::before{ background: var(--salmon); }
-    .expert--rose::before{ background: var(--rose); }
+    .expert::before{ display:none; }
+    .expert--salmon{ box-shadow: 0 16px 32px rgba(255,150,125,.22); }
+    .expert--rose{ box-shadow: 0 16px 32px rgba(255,166,173,.22); }
 
     .expert-top{
       display:flex;
       gap: 12px;
-      align-items:center;
-      padding: 14px 14px 10px;
+      align-items:flex-start;
+      padding: 10px 6px 12px;
     }
     .avatar {
-      width: 76px;
-      height: 76px;
-      border-radius: 16px;
+      width: 82px;
+      height: 82px;
+      border-radius: 20px;
       overflow: hidden;
       border: 1px solid rgba(28,51,79,.10);
       background: rgba(28,51,79,.04);
       flex: 0 0 auto;
       position: relative;
-      /* display: grid; place-items: end center;  <- это убери, оно бессмысленно с absolute */
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 4px;
     }
 
     .avatar img {
-      width: 116%;
-      height: auto; /* не надо насильно 116% по высоте, пусть держит пропорции */
+      width: 118%;
+      height: auto;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 12px 14px rgba(28,51,79,.14));
-
-      position: absolute;
-      bottom: 0;             /* прижали к низу */
-      left: 50%;             /* ставим в центр по X */
-      transform: translateX(-50%); /* центрируем, БЕЗ translateY */
+      filter: drop-shadow(0 10px 12px rgba(28,51,79,.14));
+      position: relative;
     }
 
-
-    .avatar--arina img {
-      margin-left: 7px;
-      width: 148%;   /* или 80%, или 72px — решай ты, а не браузер */
-      height: auto;
-    }
-
-    .avatar--sergey img {
-      width: 97%;   /* или 80%, или 72px — решай ты, а не браузер */
-      height: auto;
-    }    
+    .avatar--arina img { width: 136%; }
+    .avatar--sergey img { width: 104%; }
 
     .avatar--veronika{ background: #ffedf0; }
     .avatar--sergey{ background: #ebf7ff; }
     .avatar--arina{ background: #ffe455; }
     .expert-name{
       margin:0;
-      color: var(--contrast);
+      color: #2f3e57;
       font-weight: 950;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.1;
+      letter-spacing: .1px;
     }
     .expert-role{
       margin: 6px 0 0;
-      font-size: 13px;
+      font-size: 13.5px;
       line-height: 1.35;
-      opacity: .9;
+      color: #6b6b6b;
+      font-weight: 650;
     }
-    .expert-body{ padding: 0 14px 14px; }
+    .expert-body{
+      margin-top: 10px;
+      padding: 14px 10px 10px;
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: inset 0 0 0 1px rgba(28,51,79,.05);
+    }
     .expert-desc{
-      margin: 8px 0 12px;
+      margin: 12px 0 16px;
       font-size: 14px;
-      line-height: 1.45;
+      line-height: 1.52;
+      color: #5f5f5f;
     }
     .chips{
       display:flex;
-      gap: 8px;
+      gap: 10px;
       flex-wrap:wrap;
       align-items:center;
     }
@@ -275,17 +269,23 @@
       display:inline-flex;
       gap: 8px;
       align-items:center;
-      padding: 8px 10px;
+      padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(28,51,79,.05);
+      background: #eef3ff;
       border: 1px solid rgba(28,51,79,.10);
-      font-size: 12.5px;
-      line-height: 1.1;
-      min-height: 36px;
-      color: var(--contrast);
+      font-size: 12.8px;
+      line-height: 1.15;
+      min-height: 38px;
+      color: #2f3e57;
       white-space: nowrap;
+      box-shadow: 0 10px 18px rgba(28,51,79,.08);
     }
-    .chip b{ font-weight: 950; letter-spacing:.1px; line-height:1; }
+    .expert--salmon .chip:nth-child(2){
+      background: #fff3e2;
+      color: #4f3820;
+      box-shadow: 0 12px 18px rgba(255,150,125,.18);
+    }
+    .chip b{ font-weight: 950; letter-spacing:.1px; line-height:1; font-size: 14.5px; }
 
 
   </style>
