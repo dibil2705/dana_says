@@ -218,13 +218,17 @@
       flex: 0 0 auto;
     }
     .avatar img{
-      width: 84%;
-      height: 84%;
+      /* Фото увеличено на 50% относительно исходного размера */
+      width: 126%;
+      height: 126%;
       object-fit: contain;
       display:block;
       transform: translateY(6px);
       filter: drop-shadow(0 12px 14px rgba(28,51,79,.14));
     }
+    .avatar--veronika{ background: #ffedf0; }
+    .avatar--sergey{ background: #ebf7ff; }
+    .avatar--arina{ background: #ffe455; }
     .expert-name{
       margin:0;
       color: var(--contrast);
@@ -355,7 +359,7 @@
         <div class="gallery" aria-label="Галерея экспертов">
           <article class="expert expert--rose" aria-label="Вероника Иоффе">
             <div class="expert-top">
-              <div class="avatar">
+              <div class="avatar avatar--veronika">
                 <img src="https://static.tildacdn.com/tild3233-3834-4638-b238-626332326362/Frame_744_1.png" alt="Вероника Иоффе" />
               </div>
               <div>
@@ -375,7 +379,7 @@
 
           <article class="expert" aria-label="Сергей Изотов">
             <div class="expert-top">
-              <div class="avatar">
+              <div class="avatar avatar--sergey">
                 <img src="https://static.tildacdn.com/tild3230-3234-4566-a565-666637326237/Group_115_1.png" alt="Сергей Изотов" />
               </div>
               <div>
@@ -394,7 +398,7 @@
 
           <article class="expert expert--salmon" aria-label="Арина Смирнова">
             <div class="expert-top">
-              <div class="avatar">
+              <div class="avatar avatar--arina">
                 <img src="https://static.tildacdn.com/tild3439-3965-4364-b531-633866366433/Group_116_1.png" alt="Арина Смирнова" />
               </div>
               <div>
